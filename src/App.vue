@@ -1,32 +1,85 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <img id="logo" class="animated bounceInDown" alt="Logo" src="./assets/logo.svg">
+    <div id="nav" class="animated zoomIn">
+
+      <!-- Page Navigation -->
+
+      <router-link to="/">Overview</router-link>
+      |
+      <router-link to="/highcharts">HighCharts</router-link>
+
     </div>
-    <router-view />
+
+    <router-view><!-- Selected route is rendered here! --></router-view>
+
   </div>
 </template>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
 
-#nav {
-  padding: 30px;
-}
+  #logo {
+    width: 380px;
+    margin: 3em;
+  }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  #nav {
+    margin-bottom: 3em
+  }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  a {
+    text-decoration-line: none;
+    color: #41b883;
+  }
+
+  h1 {
+    color: #35495e
+  }
+
+  .box {
+    width: 360px;
+    padding: 1.6em;
+    background: rgb(233, 233, 233);
+    border-radius: 6px;
+    color: rgb(66, 66, 66);
+    margin: 0 auto;
+    text-align: left;
+    line-height: 1.6em;
+  }
+
+  .highlight {
+    color: #41b883;
+  }
+
+  .right {
+    float: right;
+  }
+
+  .updated {
+    font-size: medium;
+    line-height: 2em;
+    color: #35495e;
+  }
+
+  .loading {
+    color: #41b883;
+    background: none;
+    text-align: center;
+  }
+
+  .error {
+    color: red;
+    text-align:center;
+  }
+
+  .big {
+    font-size: xx-large;
+  }
 </style>
