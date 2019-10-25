@@ -1,0 +1,11 @@
+execution:
+- concurrency: 10
+  ramp-up: 10s
+  hold-for: 1m
+  scenario: performance-test
+
+scenarios:
+  performance-test:
+    requests:
+    - http://localhost:5001/api/priceData
+    - http://localhost:5001/api/chartData

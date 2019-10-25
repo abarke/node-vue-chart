@@ -49,7 +49,7 @@
        * Get data method uses axios to get data via a HTTP API Endpoint
        */
       axios
-        .get('http://localhost:5001/api/currentPrice') // HTTP GET Request
+        .get('http://localhost:5001/api/priceData') // HTTP GET Request
         .then(response => {
           this.currencies = response.data['bpi'];
           this.updated    = response.data.time.updated;

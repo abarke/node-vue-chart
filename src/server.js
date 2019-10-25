@@ -5,7 +5,7 @@ require('dotenv').config()
 
 const express = require('express')
 const app     = express()
-const helper  = require('./helpers.js');
+const helper  = require('./helper.js');
 
 const protocol  = process.env.PROTOCOL = process.env.PROTOCOL || 'http'
 const host      = process.env.HOST = process.env.HOST || 'localhost'
@@ -18,8 +18,7 @@ const dev       = env !== 'production'
  */
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET');
     res.setHeader('Cache-Control', 'max-age=60');
     next();
 });
@@ -27,7 +26,7 @@ app.use((req, res, next) => {
 // Routes must be defined before serving assets as order matters
 
 // HTTP GET Price API
-app.get('/api/currentPrice', (req, res) => helper.getRequest('https://api.coindesk.com/v1/bpi/currentprice.json', req, res))
+app.get('/api/priceData', (req, res) => helper.getRequest('https://api.coindesk.com/v1/bpi/currentprice.json', req, res))
 
 // HTTP GET Chart Data API
 app.get('/api/chartData', (req, res) => helper.getRequest('https://api.coindesk.com/v1/bpi/historical/close.json', req, res))

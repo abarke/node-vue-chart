@@ -25,22 +25,15 @@ const errorHandler = (error, res) => {
  */
 exports.getRequest = (url, req, res) => {
     
-    if (req.fresh) {
-        console.log('Fresh! No need to send data')
-    }
+    // HTTP GET Request
+    axios.get(url)
+        
+        // Handle Success
+        .then(response => res.status(response.status).send(response.data))
+        
+        // Handle Errors
+        .catch(error => errorHandler(error, res))
 
-    if (req.stale) {
-
-        // HTTP GET Request
-        axios.get(url)
-            
-            // Handle Success
-            .then(response => res.status(response.status).send(response.data))
-            
-            // Handle Errors
-            .catch(error => errorHandler(error, res))
-
-            // Always log
-            .finally(() => console.log(`=====> ${req.method} ${req.path} to ${req.ip}`))
-    }
+        // Always log
+        .finally(() => console.log(`=====> ${req.method} ${req.path} to ${req.ip}`))
 }
